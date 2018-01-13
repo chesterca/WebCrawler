@@ -18,7 +18,6 @@ public class Test01 {
 	
 	public static void main(String[] args) {
 		TestCrawler();
-		System.out.println("=====");
 	}
 	
 	public static void TestCrawler(){
