@@ -2,6 +2,8 @@ package com.splider;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -48,6 +50,7 @@ public class WebcCrawler {
 		Map cookies = new HashMap();
 		Iterator inter = bookUrls.iterator();
 
+		int index=0;
 		while (inter.hasNext()) {
 			String url = (String) inter.next();
 			
@@ -108,13 +111,30 @@ public class WebcCrawler {
 			
 		    //评价数目不低于1000
 			if (!rating_sum.equals("") && Integer.parseInt(rating_sum) >= 1000) {
-				int index=0;
 				index++;
 				Book book=new Book(Integer.toString(index),bookName, score,rating_sum, author,press,date,price);
 				list.add(book);	
 			}
 
 		}
+		//评分由高到低进行一个排序
+		/*Collections.sort(list,new Comparator<Book>(){
+
+			@Override
+			public int compare(Book o1, Book o2) {
+				if (Integer.parseInt(o1.getScore()) < Integer.parseInt(o2.getScore())) {
+					return 1;
+				}
+
+				if (Integer.parseInt(o1.getScore()) == Integer.parseInt(o2.getScore())) {
+					return 0;
+				}
+
+				return -1;
+			}
+			
+		});*/
+		
 		return list;
 	}
 

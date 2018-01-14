@@ -77,6 +77,11 @@ public class Book {
 	public void setPrice(String price) {
 		this.price = price;
 	}
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", bookname=" + bookname + ", score=" + score + ", rating_sum=" + rating_sum
+				+ ", author=" + author + ", press=" + press + ", date=" + date + ", price=" + price + "]";
+	}
 	
 	
 

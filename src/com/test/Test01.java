@@ -23,6 +23,7 @@ public class Test01 {
 	public static void TestCrawler(){
 		String url="https://book.douban.com";
 		String[] booktypes={"互联网","编程","算法"};
+		List<Book> booklists=new ArrayList<Book>();
 		
 		WebcCrawler webCrawler=new WebcCrawler();
 		WriteExcel  writeExcel=new WriteExcel();
@@ -30,8 +31,10 @@ public class Test01 {
 		for(int i=0;i<booktypes.length;i++){
 			List<String> bookUrls=webCrawler.getBookUrl(url, booktypes[i]);
 			List<Book> booklist=webCrawler.getBookInfo(bookUrls);
-			writeExcel.writeExcel(booklist);
+			System.out.println(booklist);
+			booklists.addAll(booklist);
 		}
+		writeExcel.writeExcel(booklists);
 	}
 
 }
