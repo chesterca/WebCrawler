@@ -14,6 +14,8 @@ import com.splider.WriteExcel;
 * @version 创建时间：2018年1月13日 下午7:16:09
 * 类说明
 */
+
+//没有加线程进行保护的测试方法
 public class Test01 {
 	
 	public static void main(String[] args) {

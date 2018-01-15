@@ -35,6 +35,12 @@ public class WebcCrawler {
 			Iterator inter = newsHeadlines.iterator();
 			while (inter.hasNext()) {
 				Element e1 = (Element) inter.next();
+				try{
+					Thread.sleep(100);//睡眠0.1秒
+				}catch (Exception e) {
+				}
+				
+				//睡眠0.1秒,然后在添加得到bookUrls的list中
 				bookUrls.add(e1.attr("href"));
 			}
 		} catch (IOException e) {
@@ -109,6 +115,12 @@ public class WebcCrawler {
 				//e.printStackTrace();
 			}
 			
+			try{
+				Thread.sleep(300);//睡眠0.3秒
+			}catch (Exception e) {
+			}
+			
+			
 		    //评价数目不低于1000
 			if (!rating_sum.equals("") && Integer.parseInt(rating_sum) >= 1000) {
 				index++;
@@ -118,22 +130,22 @@ public class WebcCrawler {
 
 		}
 		//评分由高到低进行一个排序
-		/*Collections.sort(list,new Comparator<Book>(){
+		Collections.sort(list,new Comparator<Book>(){
 
 			@Override
 			public int compare(Book o1, Book o2) {
-				if (Integer.parseInt(o1.getScore()) < Integer.parseInt(o2.getScore())) {
+				if (Double.parseDouble(o1.getScore()) < Double.parseDouble(o2.getScore())) {
 					return 1;
 				}
 
-				if (Integer.parseInt(o1.getScore()) == Integer.parseInt(o2.getScore())) {
+				if (Double.parseDouble(o1.getScore()) == Double.parseDouble(o2.getScore())) {
 					return 0;
 				}
 
 				return -1;
 			}
 			
-		});*/
+		});
 		
 		return list;
 	}
