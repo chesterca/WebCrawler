@@ -5,6 +5,9 @@ package com.splider;
 * 类说明
 */
 public class Book {
+
+	//caoxiugi
+
 	private String id;//序号
 	private String bookname;//书名
 	private String score;//评分
